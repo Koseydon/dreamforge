@@ -1,13 +1,13 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import { inject, observer } from "mobx-react";
-import BlogMultiCard from "../components/Cards/BlogMultiCard";
+import PostSingleCard from "../components/Cards/PostSingleCard";
 
 const Blog = observer(({ Store }) => {
   return (
-    <Grid container direction="column" alignItems="center">
+    <Grid direction="column" alignItems="center" container>
       <Grid container>
-        <BlogMultiCard />
+        <PostSingleCard />
       </Grid>
     </Grid>
   );

@@ -9,9 +9,22 @@ function Store() {
   this.blogPosts = [];
   this.homePosts = [];
   this.firstPost = [];
+  this.singlePost = [];
 
   this.toggleDrawer = () => {
     this.drawerState = !this.drawerState;
+  };
+
+  this.filterSinglePost = () => {
+    console.log(this.blogPosts);
+    //const found = this.blogPosts.find((post) => post._id === id);
+    //console.log(found);
+  };
+
+  this.goUrl = (e, url) => {
+    e.preventDefault();
+    window.open(url, "_blank");
+    console.log(url);
   };
 
   this.fetchBlogPosts = async () => {
@@ -27,18 +40,16 @@ function Store() {
         });
 
         if (this.blogPosts.length > 4) {
-          this.homePosts = this.blogPosts.slice(this.blogPosts.body.length - 4);
+          this.homePosts = [
+            ...this.blogPosts.slice(this.blogPosts.body.length - 4),
+          ];
         } else {
-          this.homePosts = this.blogPosts;
+          this.homePosts = [...this.blogPosts];
         }
 
         this.firstPost.push(this.homePosts.pop());
-        this.homePosts = this.homePosts.reverse();
-
-        console.log(response);
-        console.log(this.blogPosts);
-        console.log(this.homePosts);
-        console.log(this.firstPost);
+        this.homePosts.replace(this.homePosts.slice().reverse());
+        this.blogPosts.replace(this.blogPosts.slice().reverse());
       });
     } catch (err) {
       runInAction(() => {
@@ -51,7 +62,13 @@ function Store() {
 decorate(Store, {
   toggleDrawer: action,
   fetchBlogPosts: action,
+  goUrl: action,
+  filterSinglePost: action,
+  singlePost: observable,
   drawerState: observable,
+  blogPosts: observable,
+  homePosts: observable,
+  firstPost: observable,
 });
 
 export default new Store();

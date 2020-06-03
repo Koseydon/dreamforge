@@ -3,11 +3,13 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "mobx-react";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 import Store from "./Store";
 
 ReactDOM.render(
   <Provider Store={Store}>
+    <CssBaseline />
     <App />
   </Provider>,
   document.getElementById("root")

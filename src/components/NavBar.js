@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import BarDrawer from "./BarDrawer";
-import AppBar from "@material-ui/core/AppBar";
+import MuiAppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
@@ -23,7 +23,7 @@ const NavBar = observer(({ Store }) => {
   const classes = useStyles();
 
   return (
-    <AppBar color="inherit" position="absolute">
+    <MuiAppBar elevation={1} color="inherit" position="inherit">
       <Toolbar>
         <IconButton
           className={classes.icon}
@@ -39,7 +39,7 @@ const NavBar = observer(({ Store }) => {
         </Typography>
         <Button>Login</Button>
       </Toolbar>
-    </AppBar>
+    </MuiAppBar>
   );
 });
 
