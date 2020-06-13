@@ -19,28 +19,32 @@ const PostSingleCard = observer(({ Store }) => {
               }}
             >
               <Grid direction="column" alignItems="center" container>
-                <Grid item xs={8}>
+                <Grid item xs={11} sm={8}>
                   <Typography gutterBottom variant="h3">
                     {m.blogTitle}
                   </Typography>
                 </Grid>
-                <Grid item xs={8}>
+                <Grid item xs={11} sm={8}>
                   <Typography gutterBottom variant="h5">
                     {m.blogSubTitle}
                   </Typography>
                 </Grid>
-                <Grid container xs={7}>
-                  <Grid container direction="column" alignItems="center" xs={1}>
+                <Grid container xs={11} sm={7}>
+                  <Grid
+                    container
+                    alignItems="center"
+                    sm={6}
+                    justify="center"
+                    direction="row"
+                  >
                     <Avatar
                       alt="Dreamforge Avatar"
                       src={`https://dreamforge.space${m.avatar}`}
                     />
-                  </Grid>
-                  <Grid container direction="column" justify="center" xs={1}>
                     <Typography variant="subtitle1">{m.author}</Typography>
                   </Grid>
-                  <Grid container direction="column" justify="center" xs={10}>
-                    <Typography align="right">{m.newDate}</Typography>
+                  <Grid container direction="column" justify="center" sm={6}>
+                    <Typography align="center">{m.newDate}</Typography>
                   </Grid>
                 </Grid>
                 <Grid item xs={12}>
@@ -59,7 +63,7 @@ const PostSingleCard = observer(({ Store }) => {
                     <Typography align="left">{m.blogCategory}</Typography>
                   </Grid>
                 </Grid>
-                <Grid item xs={8}>
+                <Grid item xs={11} md={8}>
                   <Typography variant="h6">
                     {ReactHtmlParser(m.blogText)}
                   </Typography>

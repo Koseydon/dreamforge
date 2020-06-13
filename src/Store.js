@@ -15,18 +15,6 @@ function Store() {
     this.drawerState = !this.drawerState;
   };
 
-  this.filterSinglePost = () => {
-    console.log(this.blogPosts);
-    //const found = this.blogPosts.find((post) => post._id === id);
-    //console.log(found);
-  };
-
-  this.goUrl = (e, url) => {
-    e.preventDefault();
-    window.open(url, "_blank");
-    console.log(url);
-  };
-
   this.fetchBlogPosts = async () => {
     try {
       const response = await this.blogService.get();
@@ -62,8 +50,6 @@ function Store() {
 decorate(Store, {
   toggleDrawer: action,
   fetchBlogPosts: action,
-  goUrl: action,
-  filterSinglePost: action,
   singlePost: observable,
   drawerState: observable,
   blogPosts: observable,

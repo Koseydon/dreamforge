@@ -20,7 +20,7 @@ const HomeMultiCard = observer(({ Store }) => {
       >
         <Card
           style={{
-            //height: "100%", 'Leveling cards same but space-between not working
+            height: "100%", //'Leveling cards same but space-between not working
             backgroundColor: "rgb(0, 0, 0, 0.5)",
           }}
         >
@@ -41,7 +41,6 @@ const HomeMultiCard = observer(({ Store }) => {
               direction="column"
               justify="space-between"
               style={{
-                height: "400px",
                 padding: "16px",
               }}
             >
