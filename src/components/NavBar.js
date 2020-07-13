@@ -23,7 +23,7 @@ const NavBar = observer(({ Store }) => {
   const classes = useStyles();
 
   return (
-    <MuiAppBar elevation={1} color="inherit" position="inherit">
+    <MuiAppBar elevation={1} color="inherit" position="relative">
       <Toolbar>
         <IconButton
           className={classes.icon}

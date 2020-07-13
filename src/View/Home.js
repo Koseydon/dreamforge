@@ -8,10 +8,10 @@ const Home = observer(({ Store }) => {
   return (
     <Grid direction="column" alignItems="center" container>
       <Grid container>
-        <HomeSingleCard />
+        <HomeSingleCard post={Store.firstPost} />
       </Grid>
       <Grid container justify="space-around">
-        <HomeMultiCard />
+        <HomeMultiCard posts={Store.homePosts} />
       </Grid>
     </Grid>
   );

@@ -7,7 +7,7 @@ const Blog = observer(({ Store }) => {
   return (
     <Grid direction="column" alignItems="center" container>
       <Grid container>
-        <PostSingleCard />
+        <PostSingleCard post={Store.blogPosts} />
       </Grid>
     </Grid>
   );

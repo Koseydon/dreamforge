@@ -2,12 +2,11 @@ import React from "react";
 import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import { inject, observer } from "mobx-react";
 import Avatar from "@material-ui/core/Avatar";
 import { HashRouter, Link } from "react-router-dom";
 
-const BlogMultiCard = observer(({ Store }) => {
-  const renderCard = Store.blogPosts.map((m) => (
+const BlogMultiCard = (props) => {
+  const renderCard = props.posts.map((m) => (
     <HashRouter key={m._id}>
       <Grid
         item
@@ -40,6 +39,7 @@ const BlogMultiCard = observer(({ Store }) => {
             </Grid>
             <Grid
               container
+              item
               xs={12}
               sm={6}
               lg={8}
@@ -61,13 +61,19 @@ const BlogMultiCard = observer(({ Store }) => {
                 </Grid>
               </Grid>
               <Grid container justify="space-between">
-                <Grid container direction="column" justify="center" xs={1}>
+                <Grid container item direction="column" justify="center" xs={1}>
                   <Avatar
                     alt="Dreamforge Avatar"
                     src={`https://dreamforge.space${m.avatar}`}
                   />
                 </Grid>
-                <Grid container direction="column" justify="center" xs={10}>
+                <Grid
+                  container
+                  item
+                  direction="column"
+                  justify="center"
+                  xs={10}
+                >
                   <Typography align="right">{m.newDate}</Typography>
                 </Grid>
               </Grid>
@@ -79,8 +85,6 @@ const BlogMultiCard = observer(({ Store }) => {
   ));
 
   return <>{renderCard}</>;
-});
+};
 
-export default inject((stores) => ({
-  Store: stores.Store,
-}))(BlogMultiCard);
+export default BlogMultiCard;
